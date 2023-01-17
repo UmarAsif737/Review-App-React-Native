@@ -4,7 +4,7 @@ import { GlobalStyles } from "../styles/globalStyles";
 export default function Home() {
   return (
     <View style={GlobalStyles.container}>
-      <Text style={GlobalStyles.text}>Home asaffdssh</Text>
+      <Text style={GlobalStyles.titleText}>Home asaffdssh</Text>
     </View>
   );
 }

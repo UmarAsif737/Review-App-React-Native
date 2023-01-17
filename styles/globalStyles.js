@@ -2,8 +2,10 @@ import { StyleSheet } from "react-native";
 
 export const GlobalStyles = StyleSheet.create({
   titleText: {
-    fontSize: 18,
-    fontWeight: "bold",
+    fontFamily: "nunito-bold",
+
+    fontSize: 30,
+
     color: "#333",
   },
   paragraph: {
