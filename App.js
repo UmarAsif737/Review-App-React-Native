@@ -24,7 +24,3 @@ export default function App() {
   }
   return <Home />;
 }
-
-const styles = StyleSheet.create({
-  container: {},
-});
