@@ -32,8 +32,19 @@ export default function App() {
   return (
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={Home} />
-        <Drawer.Screen name="Notifications" component={About} />
+        <Drawer.Screen name="Home">
+          {() => (
+            <Stack.Navigator>
+              <Stack.Screen
+                name="Home"
+                component={Home}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen name="ReviewDetails" component={ReviewDetails} />
+            </Stack.Navigator>
+          )}
+        </Drawer.Screen>
+        <Drawer.Screen name="About" component={About} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
