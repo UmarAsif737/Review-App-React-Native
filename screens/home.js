@@ -10,6 +10,7 @@ import {
 import { GlobalStyles } from "../styles/globalStyles";
 
 export default function Home({ navigation }) {
+  console.log(navigation);
   const [reviews, setReviews] = useState([
     {
       title: "Zelda, Breath of Fresh Air",
@@ -33,6 +34,7 @@ export default function Home({ navigation }) {
   const pressHandler = (item) => {
     navigation.navigate("ReviewDetails", item);
   };
+
   return (
     <View style={GlobalStyles.container}>
       <FlatList

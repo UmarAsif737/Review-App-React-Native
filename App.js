@@ -13,7 +13,7 @@ const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
 export default function App() {
   const [fontLoaded, setFontLoaded] = useState(false);
-
+  const [home, setHome] = useState(true);
   useEffect(() => {
     const loadFont = async () => {
       await Font.loadAsync({
@@ -29,16 +29,19 @@ export default function App() {
   if (!fontLoaded) {
     return null;
   }
+  const homeHeader = () => {
+    setHome(false);
+  };
   return (
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home">
+        <Drawer.Screen name="Home" options={{ headerShown: home }}>
           {() => (
             <Stack.Navigator>
               <Stack.Screen
                 name="Home"
                 component={Home}
-                options={{ headerShown: false }}
+                options={{ headerShown: false, homeHeader: { homeHeader } }}
               />
               <Stack.Screen name="ReviewDetails" component={ReviewDetails} />
             </Stack.Navigator>
