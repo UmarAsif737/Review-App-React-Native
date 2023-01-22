@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import Home from "./screens/home";
 import * as Font from "expo-font";
 import React, { useEffect, useState } from "react";
@@ -32,8 +32,12 @@ export default function App() {
   const homeHeader = (item) => {
     setHome(item);
   };
+  const logo = require("./assets/heart_logo.png");
   const defaultNavigationOptions = {
     headerTitleAlign: "center",
+    headerRight: () => (
+      <Image source={logo} style={{ width: 30, height: 30, marginRight: 15 }} />
+    ),
   };
   return (
     <NavigationContainer>
