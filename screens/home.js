@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -8,9 +8,20 @@ import {
   FlatList,
 } from "react-native";
 import { GlobalStyles } from "../styles/globalStyles";
+import { useFocusEffect } from "@react-navigation/native";
+import Card from "../shared/card";
 
-export default function Home({ navigation }) {
-  console.log(navigation);
+export default function Home({ navigation, route }) {
+  const { homeHeader } = route.params;
+
+  useFocusEffect(
+    React.useCallback(() => {
+      if (navigation) {
+        homeHeader(true);
+      }
+    }, [navigation])
+  );
+
   const [reviews, setReviews] = useState([
     {
       title: "Zelda, Breath of Fresh Air",
@@ -32,6 +43,7 @@ export default function Home({ navigation }) {
     },
   ]);
   const pressHandler = (item) => {
+    homeHeader(false);
     navigation.navigate("ReviewDetails", item);
   };
 
@@ -41,7 +53,9 @@ export default function Home({ navigation }) {
         data={reviews}
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() => pressHandler(item)}>
-            <Text style={GlobalStyles.titleText}>{item.title}</Text>
+            <Card>
+              <Text style={GlobalStyles.titleText}>{item.title}</Text>
+            </Card>
           </TouchableOpacity>
         )}
       />

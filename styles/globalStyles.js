@@ -4,7 +4,7 @@ export const GlobalStyles = StyleSheet.create({
   titleText: {
     fontFamily: "nunito-bold",
 
-    fontSize: 30,
+    fontSize: 20,
 
     color: "#333",
   },

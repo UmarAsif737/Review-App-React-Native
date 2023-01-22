@@ -29,21 +29,35 @@ export default function App() {
   if (!fontLoaded) {
     return null;
   }
-  const homeHeader = () => {
-    setHome(false);
+  const homeHeader = (item) => {
+    setHome(item);
+  };
+  const defaultNavigationOptions = {
+    headerTitleAlign: "center",
   };
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" options={{ headerShown: home }}>
+      <Drawer.Navigator
+        initialRouteName="Home"
+        screenOptions={defaultNavigationOptions}
+      >
+        <Drawer.Screen name="Review App" options={{ headerShown: home }}>
           {() => (
             <Stack.Navigator>
               <Stack.Screen
                 name="Home"
                 component={Home}
+                initialParams={{
+                  message: "Hello from the Stack",
+                  homeHeader: homeHeader,
+                }}
                 options={{ headerShown: false, homeHeader: { homeHeader } }}
               />
-              <Stack.Screen name="ReviewDetails" component={ReviewDetails} />
+              <Stack.Screen
+                name="ReviewDetails"
+                component={ReviewDetails}
+                options={defaultNavigationOptions}
+              />
             </Stack.Navigator>
           )}
         </Drawer.Screen>
