@@ -35,6 +35,7 @@ export default function App() {
   const logo = require("./assets/logo.png");
   const defaultNavigationOptions = {
     headerTitleAlign: "center",
+    headerLeftContainerStyle: { marginLeft: 0 },
     headerRight: () => (
       <Image
         source={logo}
@@ -64,16 +65,7 @@ export default function App() {
               <Stack.Screen
                 name="ReviewDetails"
                 component={ReviewDetails}
-                options={{
-                  ...(defaultNavigationOptions.headerRight = () => (
-                    <Image
-                      source={logo}
-                      style={{ width: 30, height: 30, marginRight: 0 }}
-                      resizeMode="contain"
-                    />
-                  )),
-                  ...defaultNavigationOptions,
-                }}
+                options={defaultNavigationOptions}
               />
             </Stack.Navigator>
           )}
