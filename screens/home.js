@@ -59,7 +59,7 @@ export default function Home({ navigation, route }) {
             style={{ ...styles.modalToggle, ...styles.modalClose }}
             onPress={() => setModalOpen(false)}
           />
-          <Text>Hello from the modaal :)</Text>
+          <Text>Hello from the modal :)</Text>
         </View>
       </Modal>
       <MaterialIcons
