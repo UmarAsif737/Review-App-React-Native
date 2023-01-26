@@ -60,7 +60,15 @@ export default function App() {
               <Stack.Screen
                 name="ReviewDetails"
                 component={ReviewDetails}
-                options={defaultNavigationOptions}
+                options={{
+                  ...(defaultNavigationOptions.headerRight = () => (
+                    <Image
+                      source={logo}
+                      style={{ width: 30, height: 30, marginRight: 0 }}
+                    />
+                  )),
+                  ...defaultNavigationOptions,
+                }}
               />
             </Stack.Navigator>
           )}
