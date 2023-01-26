@@ -32,11 +32,15 @@ export default function App() {
   const homeHeader = (item) => {
     setHome(item);
   };
-  const logo = require("./assets/heart_logo.png");
+  const logo = require("./assets/logo.png");
   const defaultNavigationOptions = {
     headerTitleAlign: "center",
     headerRight: () => (
-      <Image source={logo} style={{ width: 30, height: 30, marginRight: 15 }} />
+      <Image
+        source={logo}
+        style={{ width: 30, height: 30, marginRight: 15 }}
+        resizeMode="contain"
+      />
     ),
   };
   return (
@@ -65,6 +69,7 @@ export default function App() {
                     <Image
                       source={logo}
                       style={{ width: 30, height: 30, marginRight: 0 }}
+                      resizeMode="contain"
                     />
                   )),
                   ...defaultNavigationOptions,
