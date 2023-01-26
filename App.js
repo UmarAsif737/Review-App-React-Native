@@ -36,19 +36,22 @@ export default function App() {
   const defaultNavigationOptions = {
     headerTitleAlign: "center",
     headerLeftContainerStyle: { marginLeft: 0 },
-    headerRight: () => (
-      <Image
-        source={logo}
-        style={{ width: 30, height: 30, marginRight: 15 }}
-        resizeMode="contain"
-      />
-    ),
+    headerRightContainerStyle: { marginLeft: 0 },
   };
   return (
     <NavigationContainer>
       <Drawer.Navigator
         initialRouteName="Home"
-        screenOptions={defaultNavigationOptions}
+        screenOptions={{
+          ...defaultNavigationOptions,
+          headerRight: () => (
+            <Image
+              source={logo}
+              style={{ width: 30, height: 30, marginRight: 15 }}
+              resizeMode="contain"
+            />
+          ),
+        }}
       >
         <Drawer.Screen name="Review App" options={{ headerShown: home }}>
           {() => (
@@ -65,7 +68,16 @@ export default function App() {
               <Stack.Screen
                 name="ReviewDetails"
                 component={ReviewDetails}
-                options={defaultNavigationOptions}
+                options={{
+                  ...defaultNavigationOptions,
+                  headerRight: () => (
+                    <Image
+                      source={logo}
+                      style={{ width: 30, height: 30, marginRight: 0 }}
+                      resizeMode="contain"
+                    />
+                  ),
+                }}
               />
             </Stack.Navigator>
           )}
