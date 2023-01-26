@@ -5,13 +5,7 @@ import { GlobalStyles } from "../styles/globalStyles";
 const AboutUs = () => {
   return (
     <View style={GlobalStyles.container}>
-      <Image
-        style={styles.logo}
-        width={150}
-        height={150}
-        resizeMode="contain"
-        source={require("../assets/logo.png")}
-      />
+      <Image style={styles.logo} source={require("../assets/logo.png")} />
       <Text style={styles.title}>About Us</Text>
       <Text style={styles.body}>
         <Text>
@@ -38,6 +32,9 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     alignSelf: "center",
     color: "black",
+    width: 150,
+    height: 150,
+    resizeMode: "contain",
   },
   title: {
     fontSize: 24,
